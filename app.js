@@ -1,6 +1,6 @@
 // SELECTORS
 const grid = document.querySelector('.grid');
-const doodler = document.createElement('div')
+const doodler = document.createElement('div');
 
 // VARIABLES
 let doodlerLeftSpace = 50;
