@@ -57,7 +57,7 @@ function movePlatforms() {
             let visual = platform.visual;
             visual.style.bottom = platform.bottom + 'px';
 
-            if(platform.bottom< 10) {
+            if(platform.bottom < 10) {
                 let firstPlatform = platforms[0].visual;
                 firstPlatform.classList.remove('platform')
                 platforms.shift();
