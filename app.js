@@ -1,6 +1,11 @@
 // SELECTORS
 const grid = document.querySelector('.grid');
 const doodler = document.createElement('div');
+const kikko = document.querySelector('.choose-kikko');
+const ditto = document.querySelector('.choose-ditto');
+const soldier = document.querySelector('.choose-soldier');
+
+
 
 // VARIABLES
 let doodlerLeftSpace = 50;
@@ -18,11 +23,37 @@ let leftTimerId;
 let rightTimerId; 
 let score = 0;
 
+//Event Listeners
+
+const chooseKikko =  kikko.addEventListener('click', kik);
+const chooseDitto = ditto.addEventListener('click', dit);
+const chooseSoldier = soldier.addEventListener('click', sol);
+
+function kik() {
+    doodler.classList.add('kikko');
+}
+
+function dit() {
+    doodler.classList.add('ditto');
+}
+function sol() {
+    doodler.classList.add('soldier');
+}
+
+
 
 //FUNCTIONS
 function createDoodler () {
     grid.appendChild(doodler);
-    doodler.classList.add('doodler');
+    if (chooseKikko) {
+        kik();
+    } else if (chooseDitto) {
+        dit();
+    } else if (chooseSoldier) {
+        sol();
+    } else {
+        dit();
+    }
     doodlerLeftSpace = platforms[0].left;
     doodler.style.left = doodlerLeftSpace + 'px';
     doodler.style.bottom = doodlerBottomSpace + 'px';
@@ -167,6 +198,7 @@ function gameOver() {
     clearInterval(leftTimerId);
     clearInterval(rightTimerId);
 }
+
 
 function start() {
     if (!gameIsOver) {
