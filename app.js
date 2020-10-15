@@ -36,6 +36,7 @@ function kik() {
 function dit() {
     doodler.classList.add('ditto');
 }
+
 function sol() {
     doodler.classList.add('soldier');
 }
@@ -45,14 +46,13 @@ function sol() {
 //FUNCTIONS
 function createDoodler () {
     grid.appendChild(doodler);
-    if (chooseKikko) {
-        kik();
-    } else if (chooseDitto) {
-        dit();
-    } else if (chooseSoldier) {
-        sol();
-    } else {
-        dit();
+
+    switch(doodler) {
+        case chooseDitto: dit()
+        break;
+        case chooseSoldier: sol()
+        break;
+        default: kik();
     }
     doodlerLeftSpace = platforms[0].left;
     doodler.style.left = doodlerLeftSpace + 'px';
